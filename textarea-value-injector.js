@@ -3,7 +3,7 @@
 let nameAttrPattern = /\sname=["'](.*?)["']/i
 let valAttrPattern = /\svalue=["'](.*?)["']/i
 let typeAttrPattern = /\stype=["'](.*?)["']/i
-let textareaPattern = /(<textarea.*?>([\w\W]*?)<textarea\w*>)/im
+let textareaPattern = /(<textarea[\w\W]*?textarea\w*>)/im
 let selectedAttrPattern = /\sselected(=["'](.*?)["'])?/i
 
 
