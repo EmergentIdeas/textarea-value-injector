@@ -1,6 +1,6 @@
 {
   "name": "textarea-value-injector",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "injects values into html textarea tag text without parsing the html document",
   "main": "textarea-value-injector.js",
   "scripts": {
