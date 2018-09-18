@@ -10,8 +10,12 @@ let selectedAttrPattern = /\sselected(=["'](.*?)["'])?/i
 function fetchValue(obj, path) {
 	try {
 		with(obj) {
-			return eval(path)
+			try {
+				return eval(path)
+			}
+			catch(e) {}
 		}
+		return obj[path]
 	}
 	catch(e) {}
 	return null
