@@ -7,18 +7,21 @@ let textareaPattern = /(<textarea[\w\W]*?textarea\w*>)/im
 let selectedAttrPattern = /\sselected(=["'](.*?)["'])?/i
 
 
-function fetchValue(obj, path) {
-	try {
-		with(obj) {
-			try {
-				return eval(path)
-			}
-			catch(e) {}
+let evalFunction = new Function('data',
+	`with (data.context) {
+		try {
+			return eval(data.expression);
+		} catch (e) {
+			return null;
 		}
-		return obj[path]
-	}
-	catch(e) {}
-	return null
+	}`
+)
+
+function fetchValue(obj, path) {
+	return evalFunction.call(this, {
+		context: obj
+		, expression: path
+	})
 }
 
 function escForRegex(val) {
